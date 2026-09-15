@@ -4,6 +4,14 @@ buku = {
     "tahun_terbit" : 1999
 }
 
+def tampilkan_data():
+    print("========DATA BUKU=========")
+    print("Judul : ", buku["judul"])
+    print("Penulis : ", buku["penulis"])
+    print("Tahun Terbit : ", buku["tahun_terbit"])
+    print("Penerbit : ", buku.get("penerbit", "Belum ada data"))
+
+
 while True:
     print("======MENU======")
     print("1. Tampilkan data")
@@ -14,26 +22,24 @@ while True:
 
     pilihan = input("Pilih menu(1-5): ")
     if pilihan == "1":
-        print("--------------------------")
-        print("Judul : ", buku["judul"])
-        print("Penulis : ", buku["penulis"])
-        print("Tahun Terbit : ", buku["tahun_terbit"])
-        print("Penerbit : ", buku.get("penerbit", "Belum ada data"))
-        pass
+        tampilkan_data()
 
     elif pilihan == "2":
         penerbit = input("Masukkan nama penerbit: ")
         buku["penerbit"] = penerbit
         print("Data penerbit berhasil ditambahkan")
+        tampilkan_data()
 
     elif pilihan == "3":
         penulis = input("Nama penulis baru: ")
         buku["penulis"] = penulis
         print("Data berhasil diubah")
+        tampilkan_data()
 
     elif pilihan == "4":
         buku.pop("penerbit", None)
         print("Data penerbit berhasil dihapus")
+        tampilkan_data()
 
     elif pilihan == "5":
         print("Program Selesai")
